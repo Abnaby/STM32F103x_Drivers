@@ -1,7 +1,7 @@
 /*********************************************************************************/
 /* Author    : Mohamed Abd El-Naby                                               */
-/* Version   : V01                                                               */
-/* Date      : 14 August 2020                                                    */
+/* Version   : V02                                                               */
+/* Date      : 26 August 2020                                                    */
 /*********************************************************************************/
 
 #ifndef GPIO_INTERFACE_H
@@ -63,7 +63,7 @@ void GPIO_voidSetPinValue		(u8 Copy_u8Port, u8 Copy_u8Pin , u8 Copy_u8Value);
 void GPIO_voidSetPortValue		(u8 Copy_u8Port, 				 u8 Copy_u8Value);
 void GPIO_voidTogglePinValue	(u8 Copy_u8Port, u8 Copy_u8Pin 					);
 u8 	 GPIO_u8GetPinValue			(u8 Copy_u8Port, u8 Copy_u8Pin					);
-
+//void GPIO_voidLockPin			(u8 Copy_u8Port, u8 Copy_u8Pin 					);
 
 
 

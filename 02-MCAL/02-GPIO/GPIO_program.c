@@ -1,7 +1,7 @@
 /*********************************************************************************/
 /* Author    : Mohamed Abd El-Naby                                               */
-/* Version   : V01                                                               */
-/* Date      : 14 August 2020                                                    */
+/* Version   : V02                                                               */
+/* Date      : 26 August 2020                                                    */
 /*********************************************************************************/
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
@@ -128,10 +128,10 @@ void GPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin , u8 Copy_u8Value)
 			switch (Copy_u8Value)
 			{
 				case HIGH :
-					SET_BIT(GPIOA_ODR , Copy_u8Pin) ;
+					GPIOA_BSRR = (1 << Copy_u8Pin);
 					break ;
 				case LOW  :	
-					CLR_BIT(GPIOA_ODR , Copy_u8Pin) ;
+					GPIOA_BRR = (1 << Copy_u8Pin);
 					break ;
 				default :
 					/*error */ 
@@ -142,10 +142,10 @@ void GPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin , u8 Copy_u8Value)
 			switch (Copy_u8Value)
 			{
 				case HIGH :
-					SET_BIT(GPIOB_ODR , Copy_u8Pin) ;
+					GPIOA_BSRR = (1 << Copy_u8Pin);
 					break ;
 				case LOW  :	
-					CLR_BIT(GPIOB_ODR , Copy_u8Pin) ;
+					GPIOA_BRR = (1 << Copy_u8Pin);
 					break ;
 				default :
 					/*error */ 
@@ -156,10 +156,10 @@ void GPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin , u8 Copy_u8Value)
 			switch (Copy_u8Value)
 			{
 				case HIGH :
-					SET_BIT(GPIOC_ODR , Copy_u8Pin) ;
+					GPIOA_BSRR = (1 << Copy_u8Pin);
 					break ;
 				case LOW  :	
-					CLR_BIT(GPIOC_ODR , Copy_u8Pin) ;
+					GPIOA_BRR = (1 << Copy_u8Pin);
 					break ;
 				default :
 					/*error */ 
@@ -189,13 +189,29 @@ void GPIO_voidSetPortValue		(u8 Copy_u8Port, u8 Copy_u8Value)
 			}
 			break ;
 		case GPIO_PORTB :
-			GPIOB_ODR = Copy_u8Value ;
+			switch(Copy_u8Value)
+			{
+			case HIGH :
+				GPIOB_ODR = 0b1111111111111111 ;
+				break ;
+			case LOW :
+				GPIOB_ODR = 0b0000000000000000 ;
+				break ;
+			}
 			break ;
 		case GPIO_PORTC :
-			GPIOC_ODR = Copy_u8Value ;
+			switch(Copy_u8Value)
+			{
+			case HIGH :
+				GPIOC_ODR = 0b1111111111111111 ;
+				break ;
+			case LOW :
+				GPIOC_ODR = 0b0000000000000000 ;
+				break ;
+			}
 			break ;
 		default :
-
+			/** 		error 		**/
 		break ;
 	}
 
@@ -273,5 +289,23 @@ u8 GPIO_u8GetPinValue (u8 Copy_u8Port, u8 Copy_u8Pin)
 	return LOC_u8Result ;
 }
 	
-	
-	
+/*	
+void GPIO_voidLockPin			(u8 Copy_u8Port, u8 Copy_u8Pin 					)
+{
+
+		switch(Copy_u8Port)
+		{
+			case GPIO_PORTA :
+				SET_PIN(GPIOA_LCKR , Copy_u8Pin );
+				break ;
+			case GPIO_PORTB :
+				SET_PIN(GPIOB_LCKR , Copy_u8Pin );
+				break ;
+			case GPIO_PORTC :
+				SET_PIN(GPIOC_LCKR , Copy_u8Pin );
+				break ;
+			default :
+			break ; 
+		}
+}	
+*/

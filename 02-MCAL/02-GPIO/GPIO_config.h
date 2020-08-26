@@ -1,7 +1,7 @@
 /*********************************************************************************/
 /* Author    : Mohamed Abd El-Naby                                               */
-/* Version   : V01                                                               */
-/* Date      : 14 August 2020                                                    */
+/* Version   : V02                                                               */
+/* Date      : 26 August 2020                                                    */
 /*********************************************************************************/
 
 #ifndef GPIO_CONFIG_H
@@ -31,6 +31,13 @@
 */
 
 #define GPIO_IO_VAL			GPIO_OUTPUT_2MHZ_PUSH_PULL
+
+/*
+	*GPIO_LOCK_PIN 	:
+						DISABLE
+						ENABLE
+*/
+
 
 #endif
 
