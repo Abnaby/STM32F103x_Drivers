@@ -12,4 +12,5 @@
 #define TOG_BIT(VAR,BIT)	VAR ^= (1 << (BIT))
 #define SPECIAL_SET(VAR,SHIFTNUM, BIT)		VAR |= (SHIFTNUM << (BIT))
 #define SPECIAL_CLR(VAR,SHIFTNUM, BIT)		VAR &= ~(SHIFTNUM << (BIT))
+#define NULL (void *)0
 #endif
