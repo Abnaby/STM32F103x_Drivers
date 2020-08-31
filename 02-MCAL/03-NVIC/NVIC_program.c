@@ -100,7 +100,7 @@ u8 	 NVIC_u8GetInterruptStatus ( u8 Copy_u8IntNumber )
 void NVIC_voidSetPeriority(u8 Copy_u8IntNumber , u8 Copy_u8GroupPriority , u8 Copy_u8SubGroupPriority)
 {
 	u8  LOC_u8SetIprRegValue = 0 ;
-	u32 LOC_u32NumOfGrousAndSub = SCB_voidPriorityInit();
+	u32 LOC_u32NumOfGrousAndSub = SCB_u32PriorityInit();
 	/*	Copy_u8GroupPriority<<((NO - 0x05FA0300 ) / 0x100 To get Number of bits of sub group */
 	LOC_u8SetIprRegValue = Copy_u8SubGroupPriority | (Copy_u8GroupPriority<<((LOC_u32NumOfGrousAndSub - 0x05FA0300 ) / 0x100 ) );
 	if (Copy_u8IntNumber < 60 )
