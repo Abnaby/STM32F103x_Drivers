@@ -17,12 +17,12 @@
 #define EXTI_IRQEvent EXTI_RISING
 /*
 	*OPTIONS OF EXTI_LINE OPTIONS :
-									LINE0
-									LINE1
-									.....
-									.....
-									LINE15
+									EXTI_LINE0
+									EXTI_LINE1
+									..........
+									..........
+									EXTI_LINE15
 */
-#define EXTI_LINE LINE0
+#define EXTI_LINE EXTI_LINE0
 #endif
 

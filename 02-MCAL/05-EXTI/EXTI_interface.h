@@ -44,9 +44,14 @@ void EXTI_voidSwTriggerInDefaultMode(u8 Copy_u8LineID);
 												OnChange ~   2)
 * Return type : void 
 ******************************************************************************/
-void EXTI_VoidFullControlSignalLatch(u8 Copy_u8LineID , u8 Copy_u8IRQEvent  , u8 Copy_u8LineStatus )
+void EXTI_VoidFullControlSignalLatch(u8 Copy_u8LineID , u8 Copy_u8IRQEvent  , u8 Copy_u8LineStatus );
 
-
+/******************************************************************************
+* Description : Call Back Function
+* Parameters  : ,
+* Return type : void 
+******************************************************************************/
+void EXTI_VoidSetCallBack(void(*Copy_ptr) (void));
 
 
 

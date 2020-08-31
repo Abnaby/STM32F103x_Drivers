@@ -22,25 +22,25 @@ typedef struct
 }EXTI_Type;
 #define EXTI  ((EXTI_Type * )EXTI_BASE_ADDRESS)
 		/*		LINE CONFIGURATION 		*/		
-#define LINE0	0
-#define LINE1	1
-#define LINE2	2
-#define LINE3	3
-#define LINE4	4
-#define LINE5	5
-#define LINE6	6
-#define LINE7	7
-#define LINE8	8
-#define LINE9	9
-#define LINE10	10
-#define LINE11	11
-#define LINE12	12
-#define LINE13	13
-#define LINE14	14
-#define LINE15	15
-#define LINE16	16
-#define LINE17	17
-#define LINE18	18
+#define EXTI_LINE0	0
+#define EXTI_LINE1	1
+#define EXTI_LINE2	2
+#define EXTI_LINE3	3
+#define EXTI_LINE4	4
+#define EXTI_LINE5	5
+#define EXTI_LINE6	6
+#define EXTI_LINE7	7
+#define EXTI_LINE8	8
+#define EXTI_LINE9	9
+#define EXTI_LINE10	10
+#define EXTI_LINE11	11
+#define EXTI_LINE12	12
+#define EXTI_LINE13	13
+#define EXTI_LINE14	14
+#define EXTI_LINE15	15
+#define EXTI_LINE16	16
+#define EXTI_LINE17	17
+#define EXTI_LINE18	18
 		/*		INTERRUPT CAPTURE 		*/	
 #define EXTI_RISING 	0
 #define EXTI_FALLING 	1
@@ -48,5 +48,10 @@ typedef struct
 
 #define ENABLE 	1
 #define DISABLE		0
+
+		/*		Call Back		*/
+
+
+static void (*EXTI0_Callback) (void) = NULL ;
 		
 #endif
