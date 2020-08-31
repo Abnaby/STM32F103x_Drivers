@@ -9,7 +9,12 @@
 
 
 		/*			PUBLIC FUNCTIONS  					*/	
-		
+/******************************************************************************
+* Description : Alternate function IO clock enable
+* Parameters  : None
+* Return type : void
+******************************************************************************/
+void AFIO_voidInit(void);
 		
 /******************************************************************************
 * Description : Initialize IRQ Event as selected in config file 

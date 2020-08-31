@@ -9,6 +9,12 @@
 #include "AFIO_interface.h"
 #include "AFIO_private.h"
 #include "AFIO_config.h"
+#include "RCC_interface.h"
+void AFIO_voidInit(void)
+{
+	RCC_voidEnableClock(RCC_APB2,0);
+
+}
 void AFIO_voidEXTIConfiguration(u8 Copy_u8LineID , u8 Copy_u8PinMap)
 {
 	u8 LOC_u8IntIndex = 0 ; 
@@ -40,7 +46,7 @@ void AFIO_voidEXTIConfiguration(u8 Copy_u8LineID , u8 Copy_u8PinMap)
 		/* ERROR */ 
 	}
 	/*			RESET		*/
-	AFIO -> AFIO_EXTICR[LOC_u8IntIndex] &=~((0b1111)<<(Copy_u8PinMap * 4 ));
+	AFIO -> AFIO_EXTICR[LOC_u8IntIndex] &=~((0b1111)<<(Copy_u8LineID * 4 ));
 	/*			ASSIGN		*/
-	AFIO -> AFIO_EXTICR[Copy_u8PinMap]  |= ((0b1111)<<(Copy_u8PinMap * 4 ));
+	AFIO -> AFIO_EXTICR[LOC_u8IntIndex]  |= ((Copy_u8PinMap)<<(Copy_u8LineID * 4 ));
 }
