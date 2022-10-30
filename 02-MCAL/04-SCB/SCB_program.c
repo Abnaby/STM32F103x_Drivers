@@ -1,20 +1,82 @@
-/*********************************************************************************/
-/* Author    : Mohamed Abd El-Naby                                               */
-/* Version   : V01                                                               */
-/* Date      : 27 August 2020                                                    */
-/*********************************************************************************/
+/**
+* @file SCB_program.c
+* @author Mohamed Abd El-Naby (mahameda.naby@gmail.com) 
+* @brief 
+* @version 0.1
+* @date 2022-10-28
+*
+*/
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
-
+#include "COMMON.h"
 #include "SCB_interface.h"
-#include "SCB_private.h"
 #include "SCB_config.h"
+#include "SCB_private.h"
 
 
-u32 SCB_u32PriorityInit()
+
+
+
+
+
+
+
+
+/******************************************************************************
+* Module Preprocessor Constants
+*******************************************************************************/
+
+
+
+
+/******************************************************************************
+* Module Preprocessor Macros
+*******************************************************************************/
+
+
+
+
+/******************************************************************************
+* Typedefs
+*******************************************************************************/
+
+
+
+
+/******************************************************************************
+* Module Variable Definitions
+*******************************************************************************/
+
+
+
+
+/******************************************************************************
+* Function Prototypes
+*******************************************************************************/
+
+
+
+
+/******************************************************************************
+* Function Definitions
+*******************************************************************************/
+
+void SCB_voidSetPriorityGrouping(PriorityGrouping_t  copy_selectGroupingSettings)
 {
-	u32 LOC_u32RegisterValue = 0;
-	LOC_u32RegisterValue	 = SCB_AIRCR_VECT_KEY +0x0+ SCB_GROUP_SUB_SELECTION + 0x00 ;
-	SCB_AIRCR = LOC_u32RegisterValue ; 
-	return LOC_u32RegisterValue ; 
+
+	/*  Make Sure the copy_selectGroupingSettings is in range   */
+    if(copy_selectGroupingSettings >= SCB_16_GROUP_0_SUB_GROUP && copy_selectGroupingSettings <= SCB_0_GROUP_16_SUB_GROUP)
+    {
+        SCB_AIRCR = copy_selectGroupingSettings ;
+    }
+    else
+    {
+        // <TODO> Ruturn Error Out of Range
+    }
 }
+
+
+/************************************* End of File ******************************************/
